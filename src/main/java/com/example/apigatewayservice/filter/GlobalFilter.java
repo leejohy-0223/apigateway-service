@@ -32,7 +32,7 @@ public class GlobalFilter extends AbstractGatewayFilterFactory<GlobalFilter.Conf
 
             // Custom post Filter
             return chain.filter(exchange).then(Mono.fromRunnable(() -> {
-                if (config.isPreLogger()) {
+                if (config.isPostLogger()) {
                     log.info("Global filter end: response code -> {}", response.getStatusCode());
                 }
             }));

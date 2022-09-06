@@ -32,6 +32,12 @@ spring:
           predicates:
             - Path=/second-service/**
           filters:
-            - CustomFilter
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Logging Filter in second service
+                preLogger: true
+                postLogger: true
+
 #            - AddRequestHeader=second-request, second-request-header2
 #            - AddResponseHeader=second-response, second-response-header2
